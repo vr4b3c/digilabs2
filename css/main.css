@@ -1,0 +1,468 @@
+@config "../js/tailwind.config.js";
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+ /* DEVELOPMENT */    
+      /* COLOR PALLETES */
+      .paletes {
+            @apply hidden lg:block;
+            position: fixed;
+            bottom: 25px;
+            left: 0px;
+            z-index: 100;
+
+            .palete {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 2px;
+                  padding: 1px;
+                  color: #fff;
+
+                  span {
+                        float: left;
+                        width: 15px;
+                        height: 30px;
+                        margin: 0;
+                  }
+            }
+      }
+
+      /* RESOLUTION INFO*/
+      .breakpoints {
+            @apply fixed bottom-0 left-0 z-50 bg-gray-500 text-white border border-white text-sm opacity-80;
+           
+      }
+      .breakpoints:after {
+            @apply px-3 py-1 text-black font-bold;
+            content: 'XS  < 480 px';
+            background: red;
+      }        
+      @media screen(sm) {
+            .breakpoints:after {
+                  content: 'SM  480 - 768 px';
+                  background: orange;
+            }             
+      }
+      @media screen(md) {
+            .breakpoints:after {
+                  content: 'MD  768 - 976 px';
+                  background: yellow;
+            }         
+      }   
+      @media screen(lg) {
+            .breakpoints:after {
+                  content: 'LG  976 - 1440 px';
+                  background: lime;
+            }         
+      }  
+      @media screen(xl) {
+            .breakpoints:after {
+                  content: 'XL  > 1440 px';
+                  background: green;
+                  color: white;
+            }         
+      }
+
+
+/* MY FONTS */
+@font-face {
+      font-family: "Montserrat";
+      font-weight: 100;
+      font-style: normal;
+      src: url("../fonts/Montserrat-Thin.woff2") format("woff2");
+}
+
+@font-face {
+      font-family: "Montserrat";
+      font-weight: 400;
+      font-style: normal;
+      src: url("../fonts/Montserrat-Regular.woff2") format("woff2");
+}
+
+@font-face {
+      font-family: "Montserrat";
+      font-weight: 700;
+      font-style: normal;
+      src: url("../fonts/Montserrat-SemiBold.woff2") format("woff2");
+}
+
+@font-face {
+      font-family: "Montserrat";
+      font-weight: 900;
+      font-style: normal;
+      src: url("../fonts/Montserrat-Black.woff2") format("woff2");
+}
+
+@font-face {
+      font-family: 'Material Icons';
+      font-style: normal;
+      font-weight: 400;
+      src: url('../fonts/Material-Icons.woff2') format('woff2');
+}
+
+
+.tangerine-regular {
+      font-family: "Tangerine", cursive;
+      font-weight: 400;
+      font-style: normal;
+}
+.tangerine-bold {
+font-family: "Tangerine", cursive;
+font-weight: 700;
+font-style: normal;
+}
+    
+.material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+/*
+:root {
+      --primary-color: #3498db;
+      --font-size-large: 1.5rem;
+}
+
+   var(--primary-color);
+   var(--font-size-large);
+*/
+
+
+/* CORE STYLES */
+
+::selection {
+      @apply bg-primary-700 text-white;
+}
+header ::selection,
+#hero ::selection {
+      @apply bg-white text-primary-700;
+}
+
+html, body {
+      @apply text-primary-100;
+
+      background: #111;
+      min-height: 300vh;
+}
+
+.container {
+      @apply max-xl:max-w-full;
+}
+
+
+@layer components { 
+
+      section#hero {
+            @apply relative w-full h-screen;
+            @apply bg-black/10;
+            background-image: url('../img/3.jpg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-blend-mode: overlay;
+      }
+      section#hero .hero-overlay {
+           @apply absolute top-0 bottom-0 left-0 right-0 bg-primary-500/10; 
+            z-index:0;
+        
+            background: radial-gradient(circle, transparent, black);
+            background-blend-mode: multiply;  
+
+      }
+      section#hero .container {
+            @apply relative z-40;
+      }
+      section#hero .row {
+            @apply h-screen flex items-center justify-center;
+
+      }
+}
+
+@layer components { 
+      .gallery2 {
+            @apply grid grid-flow-row-dense  gap-[2px] p-[2px];
+            @apply grid-cols-2 md:grid-cols-4 xl:grid-cols-8;
+            @apply bg-transparent;
+          }
+          
+          .gallery2 .gallery__img {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: cover;
+            display: block; 
+
+          }
+
+  
+          .gallery2 .gallery__item {
+                  @apply relative flex items-center justify-center;
+
+                  filter: grayscale(10%);
+                  opacity: 0.9;
+                  transition: all ease 400ms;
+
+                  &:hover {
+                        filter: grayscale(0%);    
+                        opacity: 1; 
+                  }
+
+
+                  &.tall {
+                        grid-row: span 2;  
+                  }
+                  &.wide {
+                        grid-column: span 2;  
+                  }     
+                  &.big {
+                        grid-column: span 2;  
+                        grid-row: span 2;  
+                  }
+                                                 
+
+                  &:after {
+                        @apply absolute left-[.3rem] bottom-[.3rem] text-white p-1;
+                        text-shadow: 0 1px 3px rgba(0,0,0,.5);
+                  }
+
+            /** Alternative Syntax **/
+            /* grid-column: 1 / span 2;  */
+            /* grid-row: 1 / span 2; */
+          }
+
+}
+
+
+@layer components { 
+      .gallery {
+            @apply hidden grid grid-cols-12 grid-rows-12 gap-[2px] p-[2px];
+
+
+/*
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: repeat(12, 10vw);
+            grid-gap: 2px; 
+            padding: 2px;
+
+            */
+          }
+          
+          .gallery .gallery__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block; 
+          }
+
+          
+          .gallery .gallery__item {
+                  @apply relative flex items-center justify-center;
+
+                  filter: grayscale(100%);
+                  opacity: 0.9;
+                  transition: all ease 400ms;
+
+                  &:hover {
+                        filter: grayscale(0%);    
+                        opacity: 1; 
+                  }
+
+
+                  &:nth-child(1) {
+                        grid-column: 1 / span 4;  
+                        grid-row: 1 / span 2;
+                        &:after { content:'1'; }
+                  }
+                  &:nth-child(2) {
+                        grid-column: 5 / span 2;  
+                        grid-row: 1 / span 2;
+                        &:after { content:'2'; }
+                  }  
+                  &:nth-child(3) {
+                        grid-column: 7 / span 1;  
+                        grid-row: 1 / span 1;
+                        &:after { content:'3'; }
+                  }  
+                  &:nth-child(4) {
+                        grid-column: 7 / span 2;  
+                        grid-row: 2 / span 2;
+                        &:after { content:'4'; }
+                  }               
+                  &:nth-child(5) {
+                        grid-column: 7 / span 1;  
+                        grid-row: 4 / span 1;
+                        &:after { content:'5'; }
+                  }  
+                  &:nth-child(6) {
+                        grid-column: 9 / span 4;  
+                        grid-row: 1 / span 4;
+                        &:after { content:'6'; }
+                  }  
+
+                  &:nth-child(7) {
+                        grid-column: 1 / span 2;  
+                        grid-row: 3 / span 2;
+                        &:after { content:'7'; }
+                  }                              
+                  &:nth-child(8) {
+                        grid-column: 3 / span 4;  
+                        grid-row: 3 / span 2;
+                        &:after { content:'8'; }
+                  }  
+                  &:nth-child(9) {
+
+                        &:after { content:'9'; }
+                  }                 
+                  &:nth-child(10) {
+
+                        &:after { content:'10'; }
+                  }              
+                  
+                  &:after {
+                        @apply absolute left-[.3rem] bottom-[.3rem] text-white p-1;
+                        text-shadow: 0 1px 3px rgba(0,0,0,.5);
+                  }
+
+            /** Alternative Syntax **/
+            /* grid-column: 1 / span 2;  */
+            /* grid-row: 1 / span 2; */
+          }
+
+}
+
+
+@layer components {
+/* RESPONSIVNI HLAVICKA + MENU - desktop */
+
+      header {
+            @apply fixed top-0 left-0 right-0 z-50;
+            @apply bg-transparent text-black;
+
+            .container { 
+                  @apply py-4 border-solid border-b border-white/10; 
+            }
+            .container .row { 
+                  @apply flex justify-between items-center gap-4; 
+            }
+
+            #logo {
+                  @apply text-5xl sm:text-7xl text-white font-thin font-serif tangerine-regular whitespace-nowrap;
+            }
+      }
+
+
+      #responsive-menu-open { @apply hidden; }
+      #responsive-menu-open + header  {
+
+            #menu-toggle-placeholder {
+                  @apply hidden;
+                  width: 3rem;
+                  height: 3rem;
+                  transition: 0.3s ease-in-out all;
+            }
+            #menu-toggle {
+                  @apply flex flex-col items-center justify-center bg-white/20 cursor-pointer;
+                  width: 3rem;
+                  height: 3rem;
+            }
+            #menu-toggle span {
+                  @apply bg-white;
+                  margin: 4px 0;
+                  width: 2rem;
+                  height: 2px;
+                  transform-origin: center center;
+                  transition: width 300ms linear, transform 300ms linear;
+            
+                  &:nth-child(2) {
+                        width: 1.7rem;
+                  }
+            }
+
+            #menu nav ul {
+                  @apply flex items-stretch justify-center gap-12;
+            }
+            #menu nav ul li {
+                 
+            } 
+            #menu nav ul li a {
+                  @apply text-xl whitespace-nowrap text-white;
+            }               
+      }
+
+
+      /* < LG */
+      @media not all and screen(lg) {
+
+            /* default + zavrene mobilni menu */
+            #responsive-menu-open + header  {
+
+                  #menu-toggle-placeholder {
+                        @apply block;
+                  }
+
+                  #menu nav {
+                        @apply fixed top-0 bottom-0;
+                        @apply pt-32 px-16;
+                        @apply bg-primary-500;
+                        width: 360px;
+                        right: -360px;
+                        transition: right linear 300ms;  
+                  } 
+                  #menu nav ul {
+                        @apply flex flex-col items-center justify-center gap-8;
+                  }   
+                  #menu #menu-close {
+                        @apply fixed top-0 bottom-0 overflow-hidden;
+                        @apply bg-black/50;
+                        width: calc(100vw - 360px);
+                        left: calc(360px - 100vw);
+                        transition: left linear 300ms;             
+                  }
+            }
+
+
+            /* otevrene mobilni menu */
+            #responsive-menu-open:checked + header {
+
+                  #menu nav {
+                        right: 0;
+                        transition: right linear 300ms;        
+                  }
+                  #menu #menu-close {
+                        left: 0;
+                        transition: left linear 300ms; 
+                  }
+                  #menu-toggle {            
+                        span:nth-child(1) {
+                              transform: rotate(45deg) translate(7px, 7px);
+                        }
+                        span:nth-child(2) {
+                              transform: rotateY(90deg);
+                        }
+                        span:nth-child(3) {
+                              transform: rotate(-45deg) translate(7px, -7px);
+                        }
+                  }
+
+            }   
+      }
+}
