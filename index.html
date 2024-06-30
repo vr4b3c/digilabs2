@@ -7,179 +7,249 @@
         <meta name="author" content="Jan Matoušek - jan.matousek@webolution.cz">   
         <meta name="keywords" content=""> 
         <meta name="description" content=""> 
-        <title>Aneta Kupková</title>
+        <title>Kodér | testovací úkol</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
 
-        <link href="./css/aos.css" rel="stylesheet">          
-        <link href="./css/output.css" rel="stylesheet">  
+        <link href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" rel="stylesheet" />
+        <link href="./css/default.css" rel="stylesheet">  
 
-        <script src="./js/aos.js"></script>    
-        <script src="./js/main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <script src="./js/default.js"></script>
 
     </head>
     <body> 
 
-        <input type="checkbox" name="responsive-menu-open" id="responsive-menu-open" value="" />
-        <header class="">
- 
-                <div class="container">
-                    <div class="row">
+        <input type="checkbox" name="mobile-nav-open" id="mobile-nav-open" value="" />
 
-                            
-                            <a href="/anetakupkova.art" aria-label="Aneta Kupková" id="logo">  
-                                Aneta Kupková
-                            </a>
-                        
+        <header>
+            <div class="container">
+                <div class="row">
 
-                            <div id="menu" class="">
-                                <nav>
-                                    <ul>
-                                        <li>
-                                            <a href="#">Home</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">O mě</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Mé obrazy</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Kontakt</a>
-                                        </li>
+                    
+                    <a href="./" aria-label="LOGO" id="logo">LOGO</a>
+                
 
-                                    </ul>
-                                </nav>
-                                <label id="menu-close" for="responsive-menu-open"></label>
-                            </div>
-
-                            <div id="menu-toggle-placeholder">
-                                <label id="menu-toggle" for="responsive-menu-open">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>           
-                                </label>
-                            </div>
-            
+                    <div id="menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a href="#">Služby</a>
+                                </li>
+                                <li>
+                                    <a href="#">Reference</a>
+                                </li>                              
+                                <li>
+                                    <a href="#">O nás</a>
+                                </li>
+                                <li>
+                                    <a href="#">Kariéra</a>
+                                </li>
+                                <li class="button">
+                                    <a href="#">Kontakt</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
 
 
-
-                    </div>           
-                </div>
-
+                    <div id="menu-toggle-placeholder">
+                        <label id="menu-toggle" for="mobile-nav-open">
+                            <span></span>
+                            <span></span>
+                            <span></span>           
+                        </label>
+                    </div>
+        
+                </div>           
+            </div>
         </header>
 
-    <section id="hero">
-        <div class="hero-overlay"></div>    
-        <div class="container">
-            <div class="row">
 
-                <span class="text-7xl font-thin text-primary-100">Obrazy na zakázku</span>
 
+        <section id="hero">
+
+            <picture>
+                <source srcset="./img/hero-mobile.webp" media="(max-width: 768px)">
+                <img src="./img/hero.webp" alt="Ilustrativní obrázek">
+            </picture>     
+
+            <div class="container">
+                <div class="row">
+
+                    <div id="hero-texts">
+                        <h1>Vstupte s námi do světa energetiky</h1>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+
+                    </div>
+
+                    <div id="hero-carousel">
+
+                        <div class="swiper carousel-1"> 
+                            <div class="swiper-wrapper">
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-energetika.jpeg" alt="Energetika">
+                                        <h2>Energetika</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Energetika</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-elektromobilita.jpg" alt="Elektromobilita">
+                                        <h2>Elektromobilita</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Elektromobilita</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-energetika.jpeg" alt="Optické sítě">
+                                        <h2>Optické sítě</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Optické sítě</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-elektromobilita.jpg" alt="Obnovitelné zdroje">
+                                        <h2>Obnovitelné zdroje</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Obnovitelné zdroje</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-energetika.jpeg" alt="Elektromobilita">
+                                        <h2>Elektromobilita</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Elektromobilita</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-elektromobilita.jpg" alt="Elektromobilita">
+                                        <h2>Elektromobilita</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Elektromobilita</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-energetika.jpeg" alt="Elektromobilita">
+                                        <h2>Elektromobilita</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Elektromobilita</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div>
+                                        <img src="./img/carousel-elektromobilita.jpg" alt="Elektromobilita">
+                                        <h2>Elektromobilita</h2>
+                                    </div>   
+                                    <div class="hover">
+                                        <div>
+                                            <strong>Elektromobilita</strong>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae justo euismod, tempor nisi vel, euismod quam.</p>
+                                        </div>
+                                        <div>
+                                            <a href="" class="btn-underline">Zjistit více</a>
+                                        </div>
+                                    </div> 
+                                </div>
+
+                              
+                            </div>
+
+                            <div class="swiper-pagination"></div>
+
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        
+                
+                            <div class="swiper-scrollbar"></div>
+                    
+                        </div>
+
+                    </div>         
+                </div>           
             </div>
-        </div>
-    </section>
-
-
-    <section class="text-center">
-
- 
-        <div class="gallery2">
-            <figure class="gallery__item wide">
-                <img src="./img/foto%20(2).webp" alt="Gallery image 1" class="gallery__img">
-            </figure>
-            <figure class="gallery__item">
-                <img src="./img/foto%20(1).webp" alt="Gallery image 2" class="gallery__img">
-            </figure>
-
-            <figure class="gallery__item">
-                <img src="./img/foto%20(8).webp" alt="Gallery image 4" class="gallery__img">
-            </figure>
-            <figure class="gallery__item wide">
-                <img src="./img/foto%20(7).webp" alt="Gallery image 5" class="gallery__img">
-            </figure>
-            <figure class="gallery__item big">
-                <img src="./img/foto%20(4).webp" alt="Gallery image 3" class="gallery__img">
-            </figure>            
-            <figure class="gallery__item">
-                <img src="./img/foto%20(4).webp" alt="Gallery image 6" class="gallery__img">
-            </figure>
-            <figure class="gallery__item">
-                <img src="./img/foto%20(5).webp" alt="Gallery image 7" class="gallery__img">
-            </figure>
-            <figure class="gallery__item wide">
-                <img src="./img/foto%20(6).webp" alt="Gallery image 8" class="gallery__img">
-            </figure>   
-            <figure class="gallery__item">
-                <img src="./img/foto%20(9).webp" alt="Gallery image 9" class="gallery__img">
-            </figure>
-            <figure class="gallery__item">
-                <img src="./img/foto%20(3).webp" alt="Gallery image 10" class="gallery__img">
-            </figure>      
-        </div>
-
-
-
-    </section>
-
-
-
-        <section class="text-center">
-
-
-            <div class="gallery">
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(2).webp" alt="Gallery image 1" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(1).webp" alt="Gallery image 2" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(4).webp" alt="Gallery image 3" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(8).webp" alt="Gallery image 4" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(5).webp" alt="Gallery image 5" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(4).webp" alt="Gallery image 6" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(7).webp" alt="Gallery image 7" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(6).webp" alt="Gallery image 8" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(9).webp" alt="Gallery image 9" class="gallery__img">
-                </figure>
-                <figure class="gallery__item">
-                    <img src="./img/foto%20(3).webp" alt="Gallery image 10" class="gallery__img">
-                </figure>      
-            </div>
-
-
-
         </section>
 
 
 
+        <span class="text-gray-100">GRAY100</span>
+        <span class="text-gray-200">GRAY200</span>
+        <span class="text-gray-300">GRAY300</span>
 
-        <div class="text-4xl uppercase text-primary-600">
-            <p class="font-thin">The quick brown fox ...</p>
-            <p class="font-extralight">The quick brown fox ...</p>
-            <p class="font-light">The quick brown fox ...</p>
-            <p class="font-normal">The quick brown fox ...</p>
-            <p class="font-medium">The quick brown fox ...</p>
-            <p class="font-semibold">The quick brown fox ...</p>
-            <p class="font-bold">The quick brown fox ...</p> 
-            <p class="font-extrabold">The quick brown fox ...</p>                         
-            <p class="font-black">The quick brown fox ...</p>                     
-        </div>      
+
+
+
+
+
+
+
+
+
+
 
         <div class="breakpoints"></div>
 
