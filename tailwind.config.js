@@ -22,11 +22,13 @@ module.exports = {
         colors: { 
             transparent: 'transparent',
             white: '#ffffff',
+            white2: '#f8f8f8',
             black: '#101010',    
             gray: {
                 100: '#707070',   
                 200: '#E2E2E2',
-                300: '#E7E8EA'
+                300: '#E7E8EA',
+                400: '#B7B7B7'
             }, 
             darkblue: '#0A142F',
             yellow: '#FCD404'

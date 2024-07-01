@@ -112,7 +112,7 @@
 
       header {
      /*       @apply fixed top-0 left-0 right-0 z-50;*/
-            @apply absolute top-0 left-0 right-0 z-50 bg-white text-black;
+            @apply fixed top-0 left-0 right-0 z-50 bg-white text-black;
             border-bottom: 1px solid #E7E8EA;
             box-shadow: 0px 12px 16px -4px #00000014;
             
@@ -130,7 +130,43 @@
             }
 
       }
+      footer {
+            @apply border-t border-gray-200 py-16;
 
+
+            .row {
+                  @apply  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16;
+
+
+            }
+
+            .logo {
+                  @apply block uppercase font-bold;
+                  font-size: 36px;   
+                  line-height: 55px;    
+            }
+
+            h4 {
+                  @apply font-bold mb-4 uppercase text-[13px];
+            }
+
+            ul li a {
+                  @apply inline-block py-2 text-gray-100 hover:text-yellow;
+            }
+            address {
+                  @apply not-italic text-gray-100;
+
+                  > * {
+                        @apply block py-2;
+                  }
+
+                  strong {
+                        @apply text-[20px];
+                  }
+            }
+
+
+      }
 
       #mobile-nav-open { 
             @apply hidden; 
@@ -169,14 +205,17 @@
                   @apply block text-black text-sm uppercase whitespace-nowrap ;
                   @apply py-2 px-8 leading-8 ; 
                   
+                  &:hover {
+                        @apply text-yellow;
+                  }
             }   
             #menu nav ul li.button {
                   @apply pl-10 border-l border-gray-200;
 
-                 a {
+                  a {
                         @apply bg-yellow text-black font-bold;
            
-                 }
+                  }
             }        
             
       }
@@ -246,86 +285,378 @@
 }
 
 
-.btn-underline {
-      @apply relative inline-block uppercase text-white font-bold text-sm leading-8;
+@layer components {
 
-
-      &:before {
-            @apply absolute bottom-0 w-0 h-[2px] bg-yellow content-[''];
-            transition: all ease 300ms;
-      }
-      &:hover:before {
+      .perex {
             @apply w-full;
+      } 
+      .perex .headings {
+            @apply text-[48px] font-bold leading-[3.7rem] pb-12;
       }
+      .perex p {
+            @apply text-[18px] leading-[27px] text-gray-100 pb-8;
+      }
+
+      .btn {
+            @apply relative uppercase text-black font-bold text-sm leading-8;
+      } 
+
+      .btn-underline {
+            @apply btn inline-block;
+
+
+            &:before {
+                  @apply absolute bottom-0 w-0 h-[2px] bg-yellow content-[''];
+                  transition: all ease 300ms;
+            }
+            &:hover:before {
+                  @apply w-full;
+            }
+      }
+
+      .btn-light {
+            @apply text-white;
+      }
+
+      .btn-ico {
+            @apply btn;
+            @apply inline-flex flex-row justify-start items-center;
+
+            span {
+                  @apply flex items-center justify-center;
+                  @apply border border-gray-400 rounded-full w-[44px] h-[44px] mr-4 ;
+                  @apply bg-white/10;
+
+                  transition: all linear 300ms;
+
+                  svg path {
+                        @apply fill-gray-100;
+                  }
+            }
+
+            strong {
+                  @apply relative whitespace-nowrap text-black;
+            }
+
+            strong:before {
+                  @apply absolute bottom-0 w-0 h-[2px] bg-yellow content-[''];
+                  transition: all ease 300ms;
+            }
+     
+            &:hover span {
+                  @apply bg-yellow;
+            }        
+            &:hover strong:before {
+                  @apply w-full;
+            }
+      }
+      .btn-ico-banner {
+            @apply btn;
+
+            span {
+
+                  @apply border border-gray-400;
+                  @apply bg-white/10;
+
+                  transition: all linear 300ms;
+
+                  svg path {
+                        @apply fill-white;
+                  }
+            }
+            strong {
+                  @apply text-white;
+            }
+            strong:before {
+                  @apply bg-yellow;
+            }
+     
+            &:hover span {
+                  @apply bg-yellow;
+            }
+            &:hover span svg path {
+                  @apply fill-gray-400;
+            }          
+      }  
 }
 
 @layer components {
 
 
       section#hero {
-            @apply relative w-screen max-h-screen min-h-[70vh] overflow-hidden;
+            @apply relative w-screen min-h-[40vh] overflow-hidden;
+
 
             .container {
-                  @apply pt-24 pb-20;
+                  @apply relative z-10 pt-24 lg:pb-8;
+
+
+                  .perex {
+                        @apply max-w-xl pt-12 pb-0 lg:py-16;
+                        h1 {
+                              @apply text-5xl lg:text-[4rem] font-bold lg:leading-[5rem] pb-6;
+                        }
+                        p {
+                              @apply text-lg text-gray-100;
+                        }   
+                  }          
             }
 
             picture {
-                  @apply absolute top-0 left-0 right-0 object-cover;
+                  @apply absolute top-0 left-0 right-0 bottom-0 object-cover;
+
+
+                  img {
+                        @apply object-cover min-w-full min-h-full static top-0;
+                  }
+
+                  &:after {
+                        @apply absolute left-0 top-0 bottom-0 right-0;
+                        content: '';
+                        background: rgba(0,0,0,0.1);
+                  }
             }
 
-            #hero-texts {
-                  @apply relative max-w-xl py-12;
 
-                  h1 {
-                        @apply text-[4rem] font-bold leading-[5rem] pb-6;
+      }
+
+      #projects-carousel,
+      #hero-carousel {
+            @apply min-h-[320px] flex flex-col md:flex-row justify-end items-center  gap-0 p-8 pr-0;
+
+            .button-cover {
+                  @apply w-full md:w-[310px] flex items-start justify-start;
+            }
+ 
+            .swiper {
+                  @apply m-0;
+                  width: calc(100vw - 2rem);
+
+                  @media screen(md) {
+                        width: calc(100vw - ((50vw - 720px) + 340px));
+                  }  
+            }
+
+            .swiper {
+                  @apply py-8;
+
+
+                  .swiper-wrapper {
+                       @apply pr-16;
                   }
-                  p {
-                        @apply text-lg text-gray-100;
+
+                  .swiper-slide {
+                        @apply bg-transparent text-white overflow-hidden flex flex-col lg:flex-row;;
+                
+                        
+                  
+                       
+      
+      
+                        > div {
+                              @apply relative md:w-full;
+
+                              &:first-child {
+                                    background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(41.81deg, rgba(21, 27, 25, 0.5) 0.03%, rgba(0, 0, 0, 0) 100%);
+                                    background: linear-gradient(41.81deg, rgba(21, 27, 25, 0.5) 0.03%, rgba(0, 0, 0, 0) 100%);
+            
+                              }
+               
+      
+                              h2 {
+                                    @apply absolute left-4 bottom-10;
+                                    @apply font-bold text-xl text-white;
+                              }
+                              img {
+                                    @apply w-full object-cover;
+                                    @apply min-w-full min-h-full w-auto h-auto;
+                                    mix-blend-mode: multiply;
+
+                              }
+      
+                              &.hover {
+                                    @apply absolute bottom-0 left-0 right-0 h-0 overflow-hidden;
+                                    @apply flex flex-col justify-between items-stretch;
+                                    @apply bg-darkblue text-white px-6;              
+                                    transition: height 300ms linear, padding 300ms linear;
+                              }
+
+                              &.detail {
+                                    @apply bg-white p-6 text-black flex flex-col justify-between;
+                              }
+                        }
+      
+                        &:hover div.hover {
+                              @apply h-full py-6;
+      
+                              transition: height 300ms linear, padding 300ms linear;
+      
+                              strong {
+                                    @apply block pb-4;
+                              }
+                        }
                   }
-            } 
+                  .swiper-pagina tion {
+                        @apply left-0 bottom-4 right-0;
+                        @apply h-[2px] bg-white w-screen md:w-auto;
+                        @apply flex flex-row gap-0 justify-between items-center;
+
+                        width: calc(100vw - 4rem);
+
+                   
+                        .swiper-pagination-bullet {
+                              @apply bg-white w-[12.5%] h-[2px] m-0 p-0;
+                             /* @apply flex-grow;*/
+                             border-right: 1px solid red;
+                        }                   
+                        .swiper-pagination-bullet-active {
+                              @apply bg-yellow;
+                        }
+
+
+                        @media screen(xl) {
+                              max-width: 1150px;
+                        }
+
+                  }  
+                  .swiper-scrollbar {
+                        @apply left-0 bottom-0 right-8;
+                        @apply h-[2px] bg-white w-screen md:w-auto;
+                        @apply flex flex-row gap-0 justify-between items-center;
+
+                        width: calc(100vw - 4rem);
+
+                   
+                        .swiper-scrollbar-drag {
+                              @apply bg-yellow; 
+                        }                   
+    
+                        @media screen(lg) {
+                              width: calc(100vw - 370px);
+                        }
+                        @media screen(xl) {
+                              width: calc(100vw - (50vw - 770px) - 440px);
+                        }
+
+                  }                          
+            }
+
+
+      }
+
+      .padd {
+            @apply flex flex-col items-stretch justify-start lg:justify-center lg:pl-[3rem] lg:pr-[2rem];
+      }
+
+      section#o-nas,
+      section#o-nas2 {
+
+            .row {
+                  @apply grid grid-cols-1 gap-12 py-24; 
+                  @apply lg:gap-28 lg:grid-cols-2;
+
+    
+
+                  .col {
+                        @apply flex flex-col items-center justify-center;
+                  }                 
+
+            }
+
+            ol {
+                  @apply flex flex-col gap-4 pb-12 mt-8;
+            }
+            ol li {
+                  @apply border-0 border-b border-gray-200 py-4 text-[18px];
+                  @apply flex flex-col md:flex-row justify-start items-center gap-4;
+
+                  &:last-child {
+                        @apply border-b-0;
+                  }
+            }
+            ol.between li {
+                  @apply justify-between;
+            }
+            ol li .counter-box,
+            ol li strong {
+                  @apply font-bold text-[36px];
+            }
+            ol li > span {
+                  @apply font-semibold text-[18px] text-gray-100;
+            }
+
+            ol li > a {
+                  @apply text-black;
+            }
+
+
       }
 
 
-      #hero-carousel {
-
-            .swiper-slide {
-                  @apply bg-transparent text-white;
-                  width: 305px;
-                  height: 305px;
 
 
-                  > div {
-                        @apply relative h-full;
-                        background: linear-gradient(0deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), linear-gradient(41.81deg, rgba(21, 27, 25, 0.5) 0.03%, rgba(0, 0, 0, 0) 100%);
-                        background: linear-gradient(41.81deg, rgba(21, 27, 25, 0.5) 0.03%, rgba(0, 0, 0, 0) 100%);
+      section#reference {
+            @apply bg-darkblue text-white2 py-28;; 
 
+            background: theme('colors.darkblue') url('../img/symbol.png') right center no-repeat;
+            background-size: contain;
+            .perex {
+                  @apply max-w-2xl;
 
-                        h2 {
-                              @apply absolute left-4 bottom-4;
-                              @apply font-bold text-xl text-white;
-                        }
-                        img {
-                              @apply h-full object-cover opacity-80;
-                              mix-blend-mode: multiply;
-                        }
-
-                        &.hover {
-                              @apply absolute bottom-0 left-0 right-0 h-0 overflow-hidden;
-                              @apply flex flex-col justify-between items-stretch;
-                              @apply bg-darkblue text-white px-6;              
-                              transition: height 300ms linear, padding 300ms linear;
-                        }
-                  }
-
-                  &:hover div.hover {
-                        @apply h-full py-6;
-
-                        transition: height 300ms linear, padding 300ms linear;
-
-                        strong {
-                              @apply block pb-4;
-                        }
+                  p {
+                        @apply text-white2;
                   }
             }
+      }
+
+}
+
+
+
+
+
+@layer utils {
+      .floating-images {
+            @apply relative flex items-center justify-center py-16 mb-8 w-full;
+
+            img.static-image {
+      
+            }
+            img.floating-image {
+                  @apply absolute bottom-[131px] right-0;
+                  @apply w-[223px] h-[223px];
+
+            }
+            .counter-wrapper {
+                  @apply absolute bottom-0 left-0 z-10 w-[224px];        
+                  @apply bg-yellow text-black p-6;
+                  @apply flex flex-col items-center justify-center;
+
+                  > div {
+                        @apply text-[48px] font-bold leading-[3rem];
+                  }
+                  > span {
+                        @apply font-bold text-[18px] font-semibold pt-2;
+                  }
+            }
+      }
+
+
+      .counter-box > span::before {
+            content: none;
+      }
+      .observed .counter-box > span::before {
+            @apply inline-block;
+      /* content: counter(num);*/
+      }
+      .counter-box {
+            @apply text-center;    
+      }
+      .counter-box span {
+            @apply inline-block text-center whitespace-nowrap;     
+      }
+      .counter-box .placeholder,
+      .observed .counter-box > span::before {
+            @apply inline-block;
       }
 }
