@@ -952,6 +952,13 @@ footer {
           }
         }
       }
+      li.active a {
+        font-weight: 700;
+      }
+      li.active a {
+        --tw-text-opacity: 1;
+        color: rgb(16 16 16 / var(--tw-text-opacity));
+      }
     }
   }
 

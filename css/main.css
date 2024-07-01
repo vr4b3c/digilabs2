@@ -175,6 +175,7 @@
                         li {
                               a {
                                    @apply p-0 py-2 text-lg;
+               
                               }
 
                               &.button {
@@ -184,6 +185,9 @@
                                           @apply font-normal;
                                     }
                               }
+                        }
+                        li.active a {
+                              @apply text-black font-bold;
                         }
                   }   
             }
