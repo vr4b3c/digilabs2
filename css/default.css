@@ -446,98 +446,6 @@ video {
   display: none;
 }
 
-/* DEVELOPMENT */
-
-/* COLOR PALLETES */
-
-.paletes {
-  display: none;
-}
-
-@media (min-width: 976px) {
-  .paletes {
-    display: block;
-  }
-}
-
-.paletes {
-  position: fixed;
-  bottom: 25px;
-  left: 0px;
-  z-index: 100;
-  .palete {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    padding: 1px;
-    color: #fff;
-    span {
-      float: left;
-      width: 15px;
-      height: 30px;
-      margin: 0;
-    }
-  }
-}
-
-/* RESOLUTION INFO*/
-
-.breakpoints {
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  z-index: 50;
-  border-width: 1px;
-  --tw-border-opacity: 1;
-  border-color: rgb(255 255 255 / var(--tw-border-opacity));
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-  opacity: 0.8;
-}
-
-.breakpoints:after {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgb(16 16 16 / var(--tw-text-opacity));
-  content: 'XS  < 480 px';
-  background: red;
-}
-
-@media (min-width: 480px) {
-  .breakpoints:after {
-    content: 'SM  480 - 768 px';
-    background: orange;
-  }
-}
-
-@media (min-width: 768px) {
-  .breakpoints:after {
-    content: 'MD  768 - 976 px';
-    background: yellow;
-  }
-}
-
-@media (min-width: 976px) {
-  .breakpoints:after {
-    content: 'LG  976 - 1440 px';
-    background: lime;
-  }
-}
-
-@media (min-width: 1440px) {
-  .breakpoints:after {
-    content: 'XL  > 1440 px';
-    background: green;
-    color: white;
-  }
-}
-
 @font-face {
   font-family: "Open Sans";
 
@@ -558,19 +466,11 @@ video {
   src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
 }
 
-/*
-      ::selection {
-            @apply bg-primary-700 text-white;
-      }
-      header ::selection,
-      #hero ::selection {
-            @apply bg-white text-primary-700;
-      }
-*/
-
 html, body {
+  overflow-x: hidden;
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  font-family: Open Sans, Roboto, Arial, sans-serif;
   --tw-text-opacity: 1;
   color: rgb(16 16 16 / var(--tw-text-opacity));
   background: #f6f6f6;
@@ -936,11 +836,10 @@ footer {
   #menu nav ul li a {
     line-height: 2rem;
   }
-  #menu nav ul li a {
-    &:hover {
-      --tw-text-opacity: 1;
-      color: rgb(252 212 4 / var(--tw-text-opacity));
-    }
+  #menu nav ul li.active a, 
+            #menu nav ul li a:hover {
+    --tw-text-opacity: 1;
+    color: rgb(252 212 4 / var(--tw-text-opacity));
   }
   #menu nav ul li.button {
     border-left-width: 1px;
@@ -1270,7 +1169,7 @@ footer {
   }
 }
 
-section#hero {
+section#sluzby {
   position: relative;
   min-height: 40vh;
   width: 100vw;
@@ -1749,7 +1648,7 @@ section#hero {
 }
 
 section#o-nas,
-      section#o-nas2 {
+      section#kariera {
   .row {
     display: grid;
   }
@@ -1897,10 +1796,6 @@ section#reference {
 
 .transform {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.resize {
-  resize: both;
 }
 
 @media not all and (min-width: 1440px) {

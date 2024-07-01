@@ -4,70 +4,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
  
-@layer base { 
- /* DEVELOPMENT */    
-      /* COLOR PALLETES */
-      .paletes {
-            @apply hidden lg:block;
-            position: fixed;
-            bottom: 25px;
-            left: 0px;
-            z-index: 100;
-
-            .palete {
-                  display: flex;
-                  flex-direction: column;
-                  gap: 2px;
-                  padding: 1px;
-                  color: #fff;
-
-                  span {
-                        float: left;
-                        width: 15px;
-                        height: 30px;
-                        margin: 0;
-                  }
-            }
-      }
-
-      /* RESOLUTION INFO*/
-      .breakpoints {
-            @apply fixed bottom-0 left-0 z-50 text-white border border-white text-sm opacity-80;
-           
-      }
-      .breakpoints:after {
-            @apply px-3 py-1 text-black font-bold;
-            content: 'XS  < 480 px';
-            background: red;
-      }        
-      @media screen(sm) {
-            .breakpoints:after {
-                  content: 'SM  480 - 768 px';
-                  background: orange;
-            }             
-      }
-      @media screen(md) {
-            .breakpoints:after {
-                  content: 'MD  768 - 976 px';
-                  background: yellow;
-            }         
-      }   
-      @media screen(lg) {
-            .breakpoints:after {
-                  content: 'LG  976 - 1440 px';
-                  background: lime;
-            }         
-      }  
-      @media screen(xl) {
-            .breakpoints:after {
-                  content: 'XL  > 1440 px';
-                  background: green;
-                  color: white;
-            }         
-      }
-}
-
-
 
 @layer base { 
       @font-face {
@@ -83,22 +19,13 @@
             font-style: normal;
             src: url("../fonts/OpenSans-Bold.woff2") format("woff2");
       }
-/*
-      ::selection {
-            @apply bg-primary-700 text-white;
-      }
-      header ::selection,
-      #hero ::selection {
-            @apply bg-white text-primary-700;
-      }
-*/
 
       html, body {
-            @apply bg-white text-black;
+            @apply font-sans bg-white text-black overflow-x-hidden;
 
             background: #f6f6f6;
       }
-
+ 
 }
 
 
@@ -204,11 +131,13 @@
             #menu nav ul li a {
                   @apply block text-black text-sm uppercase whitespace-nowrap ;
                   @apply py-2 px-8 leading-8 ; 
-                  
-                  &:hover {
-                        @apply text-yellow;
-                  }
+
             }   
+            #menu nav ul li.active a, 
+            #menu nav ul li a:hover {
+                  @apply text-yellow;
+            } 
+
             #menu nav ul li.button {
                   @apply pl-10 border-l border-gray-200;
 
@@ -383,7 +312,7 @@
 @layer components {
 
 
-      section#hero {
+      section#sluzby {
             @apply relative w-screen min-h-[40vh] overflow-hidden;
 
 
@@ -549,7 +478,7 @@
       }
 
       section#o-nas,
-      section#o-nas2 {
+      section#kariera {
 
             .row {
                   @apply grid grid-cols-1 gap-12 py-24; 

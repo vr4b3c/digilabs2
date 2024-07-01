@@ -54,10 +54,86 @@ document.addEventListener("DOMContentLoaded", function()
 
     initHeroCarousel();
     initReferenceCarousel();
+
+    // some efects
     counter();
+    smoothAnchorScroll();
+    scrollSpy();
 
 });
 
+
+
+
+let scrollspy_offset = 80;
+
+/**
+ * ScrollSpy
+ */
+function scrollSpy()
+{
+    const sections = document.querySelectorAll('section, header, footer');
+    const navLi = document.querySelectorAll('#menu nav ul li');
+
+    window.addEventListener('scroll', () => {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+            let scrollspy_offset2 = scrollspy_offset; 
+
+            if (section.getAttribute("id")) {
+                scrollspy_offset2 = document.querySelector('#menu a[href="#'+section.getAttribute("id")+'"]').getAttribute("data-offset")  ?? scrollspy_offset;
+            }
+
+            if (pageYOffset >= sectionTop - scrollspy_offset2) {
+                current = section.getAttribute('id');
+            }
+        });
+
+        if (pageYOffset == 0 || current == "hero") {
+            current = "domu";
+        } 
+
+        navLi.forEach(li => {
+            li.classList.remove('active');
+            if (li.querySelector('a').getAttribute('href').substring(1) === current) {
+                li.classList.add('active');
+            }
+        });
+    });
+}
+
+/** Scrollovani mezi kotvami */
+function smoothAnchorScroll ()
+{
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            let targetId = this.getAttribute('href');
+            let offsetPosition = 0;
+            let scrollspy_offset2 = this.getAttribute('data-offset') ? this.getAttribute('data-offset') : scrollspy_offset;
+
+            if(targetId !== "#domu") { // osetreni kvuli fixni hlavicky
+                let targetElement = document.querySelector(targetId);
+                let offset = scrollspy_offset2 - 5;
+                let elementPosition = targetElement.getBoundingClientRect().top;
+                    offsetPosition = elementPosition + window.pageYOffset - offset;
+            }
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+
+            document.getElementById('mobile-nav-open').checked = false;
+
+        });
+    });
+}
+
+ 
 
 
 
